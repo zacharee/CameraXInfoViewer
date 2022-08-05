@@ -32,6 +32,7 @@ kotlin {
                 api("org.jetbrains.kotlinx:kotlinx-serialization-core:1.4.0-RC")
                 api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.0-RC")
                 api("com.soywiz.korlibs.korio:korio:2.7.0")
+                api("io.ktor:ktor-client-core:2.0.3")
             }
         }
         val commonTest by getting {
@@ -60,6 +61,9 @@ kotlin {
             dependencies {
                 api(compose.web.core)
                 api(npm("firebase", "9.9.1"))
+                api(npm("jszip", "3.10.1"))
+                api(npm("web-streams-polyfill", "3.2.1"))
+                api(npm("streamsaver", "2.0.6"))
 //                api(npm("@firebase/app", "0.7.29"))
 //                api(npm("@firebase/firestore", "3.4.13"))
 //                api(npm("@firebase/auth", "0.20.5"))
@@ -72,11 +76,11 @@ kotlin {
 }
 
 android {
-    compileSdk = (31)
+    compileSdk = (32)
     sourceSets["main"].manifest.srcFile("src/androidMain/AndroidManifest.xml")
     defaultConfig {
         minSdk = (24)
-        targetSdk = (31)
+        targetSdk = (32)
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

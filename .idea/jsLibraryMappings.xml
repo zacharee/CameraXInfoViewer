@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/browser/build/compose/skiko-wasm/js" libraries="{Blob, jszip, streamsaver, web-streams-polyfill}" />
+    <file url="file://$PROJECT_DIR$/browser/build/generated/moko/jsMain/devzwandercameraxinfoviewerresourcesbrowser/res" libraries="{Blob, jszip, streamsaver, web-streams-polyfill}" />
+    <file url="file://$PROJECT_DIR$/browser/build/generated/moko/jsMain/src" libraries="{Blob, jszip, streamsaver, web-streams-polyfill}" />
+    <file url="file://$PROJECT_DIR$/browser/build/resources" libraries="{Blob, jszip, streamsaver, web-streams-polyfill}" />
+    <file url="file://$PROJECT_DIR$/browser/src/jsMain" libraries="{Blob, jszip, streamsaver, web-streams-polyfill}" />
+  </component>
+</project>

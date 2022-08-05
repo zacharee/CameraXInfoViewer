@@ -1,9 +1,6 @@
 package dev.zwander.common.data
 
-import kotlinx.serialization.KSerializer
-import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
+import kotlinx.serialization.*
 import kotlinx.serialization.builtins.MapSerializer
 import kotlinx.serialization.builtins.serializer
 import kotlinx.serialization.descriptors.SerialDescriptor
@@ -66,6 +63,7 @@ enum class ArCoreAvailability {
     UNSUPPORTED_DEVICE_NOT_CAPABLE,
 }
 
+@OptIn(ExperimentalSerializationApi::class)
 @Serializer(forClass = DeviceData::class)
 internal object DeviceDataSerializer : KSerializer<DeviceData> {
 

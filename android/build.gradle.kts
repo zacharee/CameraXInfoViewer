@@ -14,11 +14,11 @@ dependencies {
 }
 
 android {
-    compileSdk = (31)
+    compileSdk = (32)
     defaultConfig {
         applicationId = "dev.zwander.cameraxinfoviewer"
         minSdk = (24)
-        targetSdk = (31)
+        targetSdk = (32)
         versionCode = 1
         versionName = rootProject.extra["versionName"].toString()
     }

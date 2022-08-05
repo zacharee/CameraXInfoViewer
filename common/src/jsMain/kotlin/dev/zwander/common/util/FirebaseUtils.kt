@@ -13,12 +13,12 @@ actual suspend fun initializeApp() {
     signInAnonymously(getAuth()).await()
 }
 
-actual suspend fun fetchAllDocuments(): List<DeviceData> {
+actual suspend fun fetchAllDocuments(): List<Pair<String, DeviceData>> {
     val group = getDocs(collectionGroup(getFirestore(), "CameraDataNode")).await()
     val docsList = group.docs
 
     return docsList.map {
-        kotlinx.serialization.json.Json.decodeFromString(
+        it.ref.path to kotlinx.serialization.json.Json.decodeFromString(
             jsObjectToMap(it.data())["second"].toString()
         )
     }

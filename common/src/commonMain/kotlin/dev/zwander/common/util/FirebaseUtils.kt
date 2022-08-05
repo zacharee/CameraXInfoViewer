@@ -12,19 +12,19 @@ val firebaseOptions = hashMapOf(
 )
 
 expect suspend fun initializeApp()
-expect suspend fun fetchAllDocuments(): List<DeviceData>
+expect suspend fun fetchAllDocuments(): List<Pair<String, DeviceData>>
 
-suspend fun List<DeviceData>.sortDocuments(): Map<String, List<DeviceData>> {
-    val sorted = HashMap<String, MutableList<DeviceData>>()
+suspend fun List<Pair<String, DeviceData>>.sortDocuments(): Map<String, List<Pair<String, DeviceData>>> {
+    val sorted = LinkedHashMap<String, MutableList<Pair<String, DeviceData>>>()
 
-    forEach { data ->
+    forEach { (path, data) ->
         val id = "${data.brand}_${data.model}"
 
         if (!sorted.containsKey(id)) {
             sorted[id] = mutableListOf()
         }
 
-        sorted[id]?.add(data)
+        sorted[id]?.add(path to data)
     }
 
     return sorted

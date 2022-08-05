@@ -27,14 +27,14 @@ actual suspend fun initializeApp() {
     Firebase.auth.signInAnonymously().await()
 }
 
-actual suspend fun fetchAllDocuments(): List<DeviceData> {
+actual suspend fun fetchAllDocuments(): List<Pair<String, DeviceData>> {
     val c = Firebase.firestore.collectionGroup("CameraDataNode")
     val h = c.addSnapshotListener { _, _ -> }
     val r = c.get().await()
     h.remove()
 
     return r.documents.map {
-        Json.decodeFromString(
+        it.reference.path to Json.decodeFromString(
             it.data?.values?.last().toString()
         )
     }
